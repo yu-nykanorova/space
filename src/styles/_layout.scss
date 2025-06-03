@@ -1,0 +1,29 @@
+html {
+	font-size: 1px;
+}
+
+html, body, #root {
+	height: 100%;
+}
+
+body {
+	font-size: 16rem;
+	font-family: var(--font-main);
+	background: var(--white);
+    color: var(--black);
+}
+
+.page {
+    position: relative;
+    min-height: 100%;
+    padding-bottom: 100rem;
+}
+
+a {
+    color: var(--black);
+}
+
+.btn {
+    cursor: pointer;
+    transition: var(--transition);
+}

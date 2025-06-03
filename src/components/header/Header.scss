@@ -1,0 +1,49 @@
+.header {
+    position: absolute;
+    height: 100rem;
+    top: 0;
+    left: 0;
+    right: 0;
+    color: var(--white);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 40rem;
+    padding: 20rem 100rem;
+
+    .logo {
+        max-width: 100rem;
+    }
+
+    .menu {
+
+        display: flex;
+        gap: 25rem;
+        padding-top: 10rem;
+
+        .nav-link {
+            font-family: var(--font-main);
+            color: var(--white);
+            font-size: 16rem;
+            letter-spacing: 2rem;
+            position: relative;
+
+            &::after {
+                content: "";
+                position: absolute;
+                display: block;
+                bottom: -10%;
+                left: 15%;
+                width: 70%;
+                transform: scale(0);
+                height: 2rem;
+                background-color: var(--white);
+                transition: var(--transition);
+            }
+
+            &.nav-link-active::after {
+                transform: scale(1);
+            }
+        }
+    }
+}

@@ -1,0 +1,71 @@
+.banner-planets {
+    width: 100%;
+    background-image: url("../../assets/img/banner-solar-system1.jpg");
+    background-position: center center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--lilac);
+    text-shadow: 2rem 2rem 0 var(--white);
+    padding: 80rem;
+
+    &__title {
+        text-align: center;
+        font-family: var(--font-second);
+        font-size: 40rem;
+    }
+}
+
+.planets {
+    margin-top: 70rem;
+
+    &__solar-system {
+        padding: 0 300rem;
+        display: flex;
+        justify-content: center;
+        gap: 30rem;
+
+        &-image {
+            flex: 0 0 60%;
+            display: flex;
+            border-radius: 5rem;
+            box-shadow: 5px 5px 30px 0 rgba(0, 0, 0, 0.25);
+            
+            img {
+                border-radius: 5rem;
+            }
+        }
+
+        &-about {
+            text-align: center;
+            flex: 40%;
+
+            h3 {
+                font-family: var(--font-second);
+                font-size: 24rem;
+                margin-bottom: 10rem;
+            }
+
+            p {
+                margin-top: 10rem;
+                font-size: 18rem;
+                line-height: 180%;
+            }
+        }
+    }
+
+    &__title {
+        margin-top: 70rem;
+        text-align: center;
+        margin-bottom: 4%;
+    }
+
+    &__list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10rem;
+        flex-wrap: wrap;
+        padding: 0 300rem;
+    }
+}

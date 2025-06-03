@@ -1,0 +1,20 @@
+// breakpoints
+$desktop-small: 1200px;
+$tablet: 992px;
+$tablet-small: 768px;
+$mobile: 576px;
+
+:root {
+	--font-main: "Merriweather", sans-serif;
+    --font-second: "Merienda", sans-serif;
+
+	--transition: all .2s ease-in-out;
+
+    --black: #131211;
+	--dark-chocolate: #2a201f;
+    --dark-lilac: #383244;
+	--lilac: #535282;
+    --red-brown: #813834;
+	--white: #fdfdfc;
+	
+}

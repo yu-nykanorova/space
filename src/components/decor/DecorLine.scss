@@ -1,0 +1,28 @@
+.decor-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20rem;
+
+    .line {
+        width: 100rem;
+        height: 1rem;
+        background-color: var(--white);
+    }
+
+    .star {
+        color: var(--white);
+        font-size: 26rem;
+        line-height: 100%;
+    }
+
+    &.decor-line-dark {
+        .line {
+            background-color: var(--red-brown);
+        }
+        .star {
+            color: var(--red-brown);
+        }
+    }
+
+}
