@@ -7,10 +7,10 @@ export const PlanetCard = ({ planet }) => {
           <img src={planet.img} alt={planet.name} />
         </div>
         <div className="planet-card__name">{ planet.name }</div>
-        <div className="planet-card__diameter">planet diameter</div>
-        <div className="planet-card__mass">planet mass</div>
-        <div className="planet-card__gravity">planet gravity</div>
-        <div className="planet-card__period">planet period</div>
+        <div className="planet-card__diameter planet-data">Diameter: </div>
+        <div className="planet-card__mass planet-data">Mass: </div>
+        <div className="planet-card__gravity planet-data">Gravity: </div>
+        <div className="planet-card__period planet-data">Period: </div>
     </div>
   );
 };

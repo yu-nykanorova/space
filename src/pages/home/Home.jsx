@@ -2,6 +2,7 @@ import { Banner } from '../../components/banner/Banner';
 import { DecorLine } from '../../components/decor/DecorLine';
 import tempImage from '../../assets/img/temp-image.jpg';
 import './Home.scss';
+import '../../components/banner/Banner.scss';
 
 export const Home = () => {
   return (

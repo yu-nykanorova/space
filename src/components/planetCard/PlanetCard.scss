@@ -1,9 +1,34 @@
 .planet-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 5rem;
+    box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, 0.25);
+    padding-bottom: 7rem;
 
-    &__img {}
-    &__name {}
+    &__img {
+        display: flex;
+        border-radius: 7rem 7rem 0 0;
+
+        img {
+            border-radius: 7rem 7rem 0 0;
+        }
+    }
+    
+    &__name {
+        text-align: right;
+        font-family: var(--font-second);
+        font-size: 30rem;
+        font-weight: 700;
+        padding: 5rem;
+    }
+    
     &__diameter {}
     &__mass {}
     &__gravity {}
     &__period {}
+
+    .planet-data {
+        padding: 0 5rem 3rem 5rem;
+        font-size: 20rem;
+    }
 }

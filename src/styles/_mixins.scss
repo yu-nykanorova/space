@@ -1,4 +1,7 @@
 // media queries
+
+@use './vars' as *;
+
 @mixin desktop-small {
     @media (max-width: $desktop-small) {
       @content;

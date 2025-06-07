@@ -1,0 +1,51 @@
+.banner {
+    width: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner-home {
+    background-image: url("../../assets/img/space-tumannost-main-banner.jpg");
+    color: var(--white);
+    padding: 180rem 50rem;
+
+    &__info {
+        text-align: center;
+        font-family: var(--font-second);
+
+        &-title {
+            font-size: 42rem;
+            font-weight: 700;
+            margin-bottom: 10rem;
+        }
+
+        &-desc {
+            margin-top: 30rem;
+            font-size: 28rem;
+            font-weight: 300;
+            line-height: 180%;
+
+            span {
+                font-family: var(--font-main);
+                font-size: 24rem;
+            }
+        }
+    }
+}
+
+.banner-planets {
+    background-image: url("../../assets/img/banner-solar-system1.jpg");
+    color: var(--lilac);
+    text-shadow: 2rem 2rem 0 var(--white);
+    padding: 80rem;
+
+    &__title {
+        text-align: center;
+        font-family: var(--font-second);
+        font-size: 40rem;
+    }
+}
