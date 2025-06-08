@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Banner } from '../../components/banner/Banner';
+import { DecorLine } from '../../components/decor/DecorLine';
 import { planets } from '../../database/planets';
 import './Calculator.scss';
 import '../../components/banner/Banner.scss';

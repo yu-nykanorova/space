@@ -1,10 +1,14 @@
 import { Banner } from '../../components/banner/Banner';
 import { DecorLine } from '../../components/decor/DecorLine';
 import tempImage from '../../assets/img/temp-image.jpg';
+import { useFetch } from '../../hooks/useFetch';
+import { fetchNasaPhoto } from '../../services/nasa';
 import './Home.scss';
 import '../../components/banner/Banner.scss';
 
 export const Home = () => {
+  const { data, loading, error } = useFetch(fetchNasaPhoto)
+
   return (
     <>
         <Banner className="banner-home">
@@ -16,14 +20,20 @@ export const Home = () => {
         </Banner>
         <section className="daily-photo">
           <div className="daily-photo__content">
-            <div className="daily-photo__content-img">
-              <img src={tempImage} alt="NASA daily photo" />
-            </div>
-            <div className="daily-photo__content-info">
-              <h3 className="photo-title">PHOTO TITLE</h3>
-              <p className="photo-desc">PHOTO DESC</p>
-              <p className="photo-data">PHOTO DATA</p>
-            </div>
+            {loading && <p>Loading...</p>}
+            {error && <p className="error">Error: {error}</p>}
+            {!loading && !error && data && (
+              <>
+                <div className="daily-photo__content-img">
+                  <img src={data.img} alt={data.title} />
+                </div>
+                <div className="daily-photo__content-info">
+                  <h3 className="photo-title">{data.title}</h3>
+                  <p className="photo-desc">{data.explanation}</p>
+                  <p className="photo-data">{data.date}</p>
+                </div>
+              </>
+            )}
           </div>
         </section>
         <DecorLine className="decor-line-dark" />
