@@ -1,13 +1,17 @@
+import { Link } from 'react-router-dom';
 import { Banner } from '../../components/banner/Banner';
 import { DecorLine } from '../../components/decor/DecorLine';
-import tempImage from '../../assets/img/temp-image.jpg';
 import { useFetch } from '../../hooks/useFetch';
 import { fetchNasaPhoto } from '../../services/nasa';
+import { fetchSpaceflightNews } from '../../services/spaceflight';
 import './Home.scss';
 import '../../components/banner/Banner.scss';
 
 export const Home = () => {
-  const { data, loading, error } = useFetch(fetchNasaPhoto)
+  const { data: dataNasa, loading: loadingNasa, error: errorNasa } = useFetch(fetchNasaPhoto);
+  const { data: articles, loading: loadingArticles, error: errorArticles, reload: reloadArticles } = useFetch(fetchSpaceflightNews);
+
+  
 
   return (
     <>
@@ -20,17 +24,17 @@ export const Home = () => {
         </Banner>
         <section className="daily-photo">
           <div className="daily-photo__content">
-            {loading && <p>Loading...</p>}
-            {error && <p className="error">Error: {error}</p>}
-            {!loading && !error && data && (
+            {loadingNasa && <p>Loading...</p>}
+            {errorNasa && <p className="error">Error: {errorNasa}</p>}
+            {!loadingNasa && !errorNasa && dataNasa && (
               <>
                 <div className="daily-photo__content-img">
-                  <img src={data.img} alt={data.title} />
+                  <img src={dataNasa.img} alt={dataNasa.title} />
                 </div>
                 <div className="daily-photo__content-info">
-                  <h3 className="photo-title">{data.title}</h3>
-                  <p className="photo-desc">{data.explanation}</p>
-                  <p className="photo-data">{data.date}</p>
+                  <h3 className="photo-title">{dataNasa.title}</h3>
+                  <p className="photo-desc">{dataNasa.explanation}</p>
+                  <p className="photo-data">{dataNasa.date}</p>
                 </div>
               </>
             )}
@@ -41,32 +45,24 @@ export const Home = () => {
           <div className="news__content">
             <div className="news__content-title">NEWS TITLE</div>
             <div className="news__content-list">
-              {/* { newsItems } */}
-              <div className="news-item-card">
-                <div className="news-item-card__img">
-                  <img src={tempImage} alt="news photo" />
-                </div>
-                <div className="news-item-card__title">News title</div>
-                <div className="news-item-card__info">News description</div>
-                <div className="news-item-card__more-btn btn">MORE...</div>
-              </div>
-              <div className="news-item-card">
-                <div className="news-item-card__img">
-                  <img src={tempImage} alt="news photo" />
-                </div>
-                <div className="news-item-card__title">News title</div>
-                <div className="news-item-card__info">News description</div>
-                <div className="news-item-card__more-btn btn">MORE...</div>
-              </div>
-              <div className="news-item-card">
-                <div className="news-item-card__img">
-                  <img src={tempImage} alt="news photo" />
-                </div>
-                <div className="news-item-card__title">News title</div>
-                <div className="news-item-card__info">News description</div>
-                <div className="news-item-card__more-btn btn">MORE...</div>
-              </div>
+              {loadingArticles && <p>Loading...</p>}
+              {errorArticles && <p className="error">Error: {errorArticles}</p>}
+              {!loadingArticles && !errorArticles && articles && articles.map(article => (
+                <div key={article.id} className="news-item-card">
+                  <div className="news-item-card__img">
+                    <img src={article.img} alt={article.title} />
+                  </div>
+                  <div className="news-item-card__info">
+                    <div className="news-item-card__info-title">{article.title}</div>
+                    <div className="news-item-card__info-summary">
+                      {article.summary.split(" ").slice(0, 50).join(" ")}...
+                    </div>
+                  </div>
+                  <Link to={article.url} target="_blank" className="news-item-card__more-btn btn">MORE...</Link>
+                </div>          
+              ))}
             </div>
+            <div className="news__content-btn btn">Show other</div>
           </div>
         </section>    
     </>

@@ -62,7 +62,7 @@
         max-width: 60%;
 
         &-title {
-            margin-bottom: 20rem;
+            margin-bottom: 30rem;
             color: var(--white);
             font-family: var(--font-second);
             font-size: 26rem;
@@ -71,45 +71,69 @@
         &-list {
             display: flex;
             justify-content: center;
-            align-items: center;
-            gap: 50rem;
+            gap: 30rem;
+            margin-bottom: 30rem;
 
             .news-item-card {
-                max-width: 300rem;
+                flex: 0 0 calc((100% - 30rem * 2) / 3);
                 background-color: var(--white);
                 border-radius: 7rem;
+                display: grid;
+                grid-template-rows: auto 1fr auto;
                 
                 &__img {
+                    width: 100%;
                     display: flex;
-                    border-radius: 5rem;
+                    border-radius: 7rem 7rem 0 0;
+                    height: 200rem;
 
                     img {
-                        border-radius: 7rem;
+                        width: 100%;
+                        border-radius: 7rem 7rem 0 0;
                     }
                 }
 
-                &__title {
-                    font-family: var(--font-second);
-                    font-size: 18rem;
-                    font-weight: 600;
-                    margin: 10rem 5rem 5rem 5rem;
-                }
-
                 &__info {
-                    margin: 0 5rem 10rem 5rem;
-                    font-size: 16rem;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+
+                    &-title {
+                        font-family: var(--font-second);
+                        font-size: 18rem;
+                        font-weight: 700;
+                        margin: 10rem;
+                    }
+    
+                    &-summary {
+                        margin: 0 10rem 10rem 10rem;
+                        font-size: 16rem;
+                    }
                 }
 
                 &__more-btn {
                     margin: 0 5rem 10rem 5rem;
-                    padding: 5rem;
+                    padding: 10rem 5rem;
                     border: 1rem solid var(--red-brown);
                     border-radius: 5rem;
-                    display: inline-block;
+                    display: flex;
                     background-color: var(--red-brown);
-                    font-size: 16rem;
+                    font-size: 18rem;
                     color: var(--white);
                 }
+            }
+        }
+
+        &-btn {
+            padding: 10rem 30rem;
+            background-color: var(--white);
+            border-radius: 7rem;
+            color: var(--dark-lilac);
+            font-size: 24rem;
+            font-weight: 600;
+
+            &:hover {
+                transform: scale(1.03);
             }
         }
     }
