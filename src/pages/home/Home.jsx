@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { Link } from 'react-router-dom';
 import { Banner } from '../../components/banner/Banner';
 import { DecorLine } from '../../components/decor/DecorLine';
+import { Spinner } from "../../components/decor/Spinner";
 import { useFetch } from '../../hooks/useFetch';
 import { fetchNasaPhoto } from '../../services/nasa';
 import { fetchSpaceflightNews } from '../../services/spaceflight';
@@ -11,7 +13,11 @@ export const Home = () => {
   const { data: dataNasa, loading: loadingNasa, error: errorNasa } = useFetch(fetchNasaPhoto);
   const { data: articles, loading: loadingArticles, error: errorArticles, reload: reloadArticles } = useFetch(fetchSpaceflightNews);
 
-  
+  const { otherArticles, setOtherArticles } = useState(null);
+
+  const onArticlesLoaded = () => {
+    reloadArticles();
+  };
 
   return (
     <>
@@ -23,8 +29,8 @@ export const Home = () => {
           </div> 
         </Banner>
         <section className="daily-photo">
+          <h2 className="daily-photo__title">NASA picture of the day</h2>
           <div className="daily-photo__content">
-            {loadingNasa && <p>Loading...</p>}
             {errorNasa && <p className="error">Error: {errorNasa}</p>}
             {!loadingNasa && !errorNasa && dataNasa && (
               <>
@@ -45,7 +51,7 @@ export const Home = () => {
           <div className="news__content">
             <div className="news__content-title">NEWS TITLE</div>
             <div className="news__content-list">
-              {loadingArticles && <p>Loading...</p>}
+              {loadingArticles && <Spinner />}
               {errorArticles && <p className="error">Error: {errorArticles}</p>}
               {!loadingArticles && !errorArticles && articles && articles.map(article => (
                 <div key={article.id} className="news-item-card">
@@ -62,7 +68,7 @@ export const Home = () => {
                 </div>          
               ))}
             </div>
-            <div className="news__content-btn btn">Show other</div>
+            <div className="news__content-btn btn" onClick={onArticlesLoaded}>Show other</div>
           </div>
         </section>    
     </>

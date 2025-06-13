@@ -24,14 +24,17 @@
         text-shadow: 1rem 1rem 5rem rgba(83, 82, 130, 0.25);
         padding: 5rem;
     }
-    
-    &__diameter {}
-    &__mass {}
-    &__gravity {}
-    &__period {}
 
     .planet-data {
-        padding: 0 5rem 3rem 5rem;
+        padding: 0 5rem 8rem 5rem;
         font-size: 20rem;
+        margin-bottom: 3rem;
+        color: var(--red-brown);
+        font-weight: 600;
+
+        span {
+            color: var(--black);
+            font-weight: 600;
+        }
     }
 }
