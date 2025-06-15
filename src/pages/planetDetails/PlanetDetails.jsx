@@ -16,7 +16,7 @@ export const PlanetDetails = () => {
     return <div className="planet-details">Planet not found</div>;
   }
 
-  const { data, loading, error } = useFetch(() => fetchWikipedia(planet.name));
+  const { data, loading, error } = useFetch(() => fetchWikipedia(planet.wikiName));
   
   return (
     <>

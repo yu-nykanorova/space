@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import { Banner } from '../../components/banner/Banner';
 import { DecorLine } from '../../components/decor/DecorLine';
@@ -10,14 +10,33 @@ import './Home.scss';
 import '../../components/banner/Banner.scss';
 
 export const Home = () => {
-  const { data: dataNasa, loading: loadingNasa, error: errorNasa } = useFetch(fetchNasaPhoto);
+  const todayDate = new Date().toISOString().slice(0, 10);
+  const [currentDate, setCurrentDate] = useState(todayDate);
+
+  const { data: dataNasa, loading: loadingNasa, error: errorNasa, reload: reloadNasa } = useFetch(() => fetchNasaPhoto(currentDate));
   const { data: articles, loading: loadingArticles, error: errorArticles, reload: reloadArticles } = useFetch(fetchSpaceflightNews);
 
-  const { otherArticles, setOtherArticles } = useState(null);
+  useEffect(() => {
+    reloadNasa(currentDate);
+  }, [currentDate]);
+  
+  const onArticlesLoaded = () => reloadArticles();
 
-  const onArticlesLoaded = () => {
-    reloadArticles();
+  const changeDate = (days) => {
+    const newDate = new Date(currentDate);
+    newDate.setDate(newDate.getDate() + days);
+    const formatted = newDate.toISOString().slice(0, 10);
+
+    if (newDate > new Date()) return;
+
+    setCurrentDate(formatted);
   };
+
+  const onToday = () => {
+    if (currentDate !== todayDate) {
+      setCurrentDate(todayDate);
+    }
+  }
 
   return (
     <>
@@ -31,16 +50,32 @@ export const Home = () => {
         <section className="daily-photo">
           <h2 className="daily-photo__title">NASA picture of the day</h2>
           <div className="daily-photo__content">
-            {errorNasa && <p className="error">Error: {errorNasa}</p>}
+            {loadingNasa && <Spinner />}
+            {errorNasa && <p className="error">Error: { errorNasa }</p>}
             {!loadingNasa && !errorNasa && dataNasa && (
               <>
                 <div className="daily-photo__content-img">
                   <img src={dataNasa.img} alt={dataNasa.title} />
                 </div>
                 <div className="daily-photo__content-info">
-                  <h3 className="photo-title">{dataNasa.title}</h3>
-                  <p className="photo-desc">{dataNasa.explanation}</p>
-                  <p className="photo-data">{dataNasa.date}</p>
+                  <h3 className="photo-title">{ dataNasa.title }</h3>
+                  <p className="photo-desc">{ dataNasa.explanation }</p>
+                  <p className="photo-data">{ currentDate }</p>
+                  <div className="buttons">
+                    <div className="btn-prev btn" onClick={() => changeDate(-1)}>Previous</div>
+                    <div
+                      className={`btn-next btn ${currentDate === todayDate ? "disabled" : ""}`}
+                      onClick={() => changeDate(1)}
+                    >
+                      Next
+                    </div>
+                    <div
+                      className={`btn-today btn ${currentDate === todayDate ? "disabled" : ""}`}
+                      onClick={onToday}
+                    >
+                      Today
+                    </div>
+                  </div>
                 </div>
               </>
             )}
@@ -49,7 +84,7 @@ export const Home = () => {
         <DecorLine className="decor-line-dark" />
         <section className="news">
           <div className="news__content">
-            <div className="news__content-title">NEWS TITLE</div>
+            <div className="news__content-title">Spaceflight news</div>
             <div className="news__content-list">
               {loadingArticles && <Spinner />}
               {errorArticles && <p className="error">Error: {errorArticles}</p>}

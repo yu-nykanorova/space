@@ -27,14 +27,15 @@
     &__content {
         width: 100%;
         margin-top: 70rem;
-        padding: 50rem 100rem;
+        padding: 50rem 0;
         background-color: var(--dark-lilac);
 
         p {
-            font-size: 16rem;
+            font-size: 20rem;
             color: var(--white);
             text-align: center;
             margin-bottom: 30rem;
+            padding-inline: 100rem;
         }
 
         &-input, &-select {
@@ -44,7 +45,7 @@
             font-size: 16rem;
             font-weight: 600;
             color: var(--lilac);
-            padding: 5rem 7rem;
+            padding: 10rem 5rem;
             border-radius: 7rem;
         }
 
@@ -52,7 +53,7 @@
             margin-bottom: 20rem;
             text-align: center;
             &::placeholder {
-                font-size: 14rem;
+                font-size: 16rem;
                 font-weight: 400;
             }
         }
@@ -64,13 +65,16 @@
         }
 
         &-result {
-            font-size: 16rem;
-            color: var(--white);
+            padding: 10rem;
+            font-size: 18rem;
+            color: var(--dark-lilac);
+            background-color: var(--white);
             text-align: center;
 
             span {
-                font-size: 18rem;
+                font-size: 20rem;
                 font-weight: 600;
+                color: var(--red-brown);
                 text-shadow: 1rem 1rem 5rem rgba(83, 82, 130, 0.25);
             }
         }

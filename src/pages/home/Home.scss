@@ -10,16 +10,17 @@
 
     &__title {
         font-family: var(--font-second);
-        font-size: 30rem;
+        font-size: 36rem;
         font-weight: 700;
-        text-shadow: 1rem 1rem 5rem rgba(83, 82, 130, 0.25);
-        margin-bottom: 30rem;
+        color: var(--dark-lilac);
+        text-shadow: 1rem 1rem 5rem rgba(0, 0, 0, 0.5);
+        margin-bottom: 50rem;
     }
 
     &__content {
         display: flex;
         justify-content: center;
-        gap: 20rem;
+        gap: 30rem;
 
         &-img {
             flex: 0 0 40%;
@@ -37,7 +38,7 @@
             .photo-title {
                 margin-bottom: 20rem;
                 font-family: var(--font-second);
-                font-size: 26rem;
+                font-size: 24rem;
                 text-shadow: 1rem 1rem 5rem rgba(83, 82, 130, 0.25);
             }
 
@@ -51,11 +52,36 @@
                 font-family: var(--font-second);
                 font-size: 20rem;
                 font-weight: 600;
+                margin-bottom: 20rem;
+            }
+
+            .buttons {
+                display: flex;
+                gap: 10rem;
+        
+                .btn {
+                    color: var(--red-brown);
+                    padding: 5rem 10rem;
+                    text-align: center;
+                    font-size: 20rem;
+                    border: 2rem solid var(--red-brown);
+                    border-radius: 7rem;
+
+                    &:not(.disabled):hover {
+                        color: var(--white);
+                        background-color: var(--red-brown);
+                    }
+
+                    &.disabled {
+                        color: var(--lilac);
+                        border: 2rem solid var(--lilac);
+                        opacity: 0.6;
+                        cursor: default;
+                    }
+                }
             }
         }
     }
-
-
 }
 
 .news {
@@ -78,7 +104,7 @@
             margin-bottom: 30rem;
             color: var(--white);
             font-family: var(--font-second);
-            font-size: 26rem;
+            font-size: 36rem;
         }
         
         &-list {
