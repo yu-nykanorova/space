@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
+import { motion } from 'motion/react';
 import { Banner } from '../../components/banner/Banner';
 import { DecorLine } from '../../components/decor/DecorLine';
 import { Spinner } from "../../components/decor/Spinner";
@@ -42,9 +43,23 @@ export const Home = () => {
     <>
         <Banner className="banner-home">
           <div className="banner-home__info">
-              <h1 className="banner-home__info-title">Among The Stars</h1>
+              <motion.h1
+                className="banner-home__info-title"
+                initial={{ opacity: 0, y: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1.5 }}
+              >
+                Among The Stars
+              </motion.h1>
               <DecorLine />
-              <p className="banner-home__info-desc">"The universe is not only stranger than we imagine, it is stranger than we can imagine."<br /><span>— Arthur C. Clarke</span></p>
+              <motion.p
+                className="banner-home__info-desc"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.6 }}
+              >
+                "The universe is not only stranger than we imagine, it is stranger than we can imagine."<br /><span>— Arthur C. Clarke</span>
+              </motion.p>
           </div> 
         </Banner>
         <section className="daily-photo">
@@ -99,7 +114,7 @@ export const Home = () => {
                       {article.summary.split(" ").slice(0, 50).join(" ")}...
                     </div>
                   </div>
-                  <Link to={article.url} target="_blank" className="news-item-card__more-btn btn">MORE...</Link>
+                  <Link to={article.url} target="_blank" className="news-item-card__more-btn btn">More...</Link>
                 </div>          
               ))}
             </div>

@@ -2,7 +2,8 @@
 
 .daily-photo {
     margin: 70rem auto 40rem;
-    max-width: 800rem;
+    padding: 0 40rem;
+    max-width: 1520rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -13,7 +14,7 @@
         font-size: 36rem;
         font-weight: 700;
         color: var(--dark-lilac);
-        text-shadow: 1rem 1rem 5rem rgba(0, 0, 0, 0.5);
+        text-shadow: 1rem 1rem 3rem rgba(0, 0, 0, 0.5);
         margin-bottom: 50rem;
     }
 
@@ -85,8 +86,7 @@
 }
 
 .news {
-    margin-top: 40rem;
-    margin-bottom: 20rem;
+    margin: 40rem auto 20rem;
     padding: 80rem 40rem;
     display: flex;
     justify-content: center;
@@ -94,11 +94,11 @@
     background-color: var(--dark-lilac);
 
     &__content {
+        max-width: 1440rem;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        max-width: 60%;
 
         &-title {
             margin-bottom: 30rem;
@@ -109,7 +109,7 @@
         
         &-list {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             gap: 30rem;
             margin-bottom: 30rem;
 
@@ -151,30 +151,39 @@
                 }
 
                 &__more-btn {
+                    max-width: 50%;
                     margin: 0 5rem 10rem 5rem;
-                    padding: 10rem 5rem;
-                    border: 1rem solid var(--red-brown);
-                    border-radius: 5rem;
+                    padding: 7rem 5rem;
+                    border: 2rem solid var(--red-brown);
+                    border-radius: 7rem;
                     display: flex;
-                    background-color: var(--red-brown);
+                    background-color: var(--white);
                     font-size: 18rem;
-                    color: var(--white);
+                    font-weight: 600;
+                    color: var(--red-brown);
+
+                    &:hover {
+                        background-color: var(--red-brown);
+                        color: var(--white);
+                    }
                 }
             }
         }
 
         &-btn {
             padding: 10rem 30rem;
-            background-color: var(--white);
+            background-color: var(--red-brown);
+            border: 1rem solid var(--white);
             border-radius: 7rem;
-            color: var(--dark-lilac);
+            color: var(--white);
             font-size: 18rem;
             font-weight: 600;
             transition: var(--transition);
 
             &:hover {
-                background-color: var(--black);
-                color: var(--white);
+                background-color: var(--white);
+                color: var(--dark-lilac);
+                border: 1rem solid var(--dark-lilac);
             }
         }
     }

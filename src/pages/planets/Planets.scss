@@ -1,11 +1,14 @@
+@use '../../styles/mixins' as *;
+
 .solar-system {
-    margin-top: 70rem;   
+    margin-top: 70rem;
+    padding: 0 40rem; 
 
     &__about {
-        max-width: 800rem;
         margin-inline: auto; 
         margin-bottom: 70rem;
-        padding: 0 20rem;
+        max-width: 1440rem;
+        
         display: flex;
         justify-content: center;
         gap: 30rem;
@@ -41,7 +44,8 @@
     }
 
     &__planets {
-        padding: 0 200rem;
+        max-width: 1440rem;
+        margin-inline: auto;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -58,9 +62,9 @@
     
         &-list {
             display: flex;
-            justify-content: center;
+            justify-content: space-evenly;
             align-items: center;
-            gap: 20rem;
+            gap: 30rem;
             flex-wrap: wrap;
         }
     }

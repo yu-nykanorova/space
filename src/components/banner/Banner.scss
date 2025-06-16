@@ -1,3 +1,5 @@
+@use '../../styles/mixins' as *;
+
 .banner {
     width: 100%;
     background-position: center center;
@@ -21,6 +23,7 @@
             font-size: 42rem;
             font-weight: 700;
             margin-bottom: 10rem;
+            text-shadow: 1rem 1rem 2rem var(--lilac);
         }
 
         &-desc {
@@ -40,7 +43,8 @@
 .banner-planets {
     background-image: url("../../assets/img/banner-solar-system1.jpg");
     color: var(--lilac);
-    text-shadow: 2rem 2rem 0 var(--white);
+    text-shadow: 1rem 1rem 1rem var(--white);
+     
     padding: 80rem;
 
     &__title {

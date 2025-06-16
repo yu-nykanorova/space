@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { motion } from 'motion/react';
 import { PlanetCard } from '../../components/planetCard/PlanetCard';
 import { Banner } from '../../components/banner/Banner';
 import { DecorLine } from '../../components/decor/DecorLine';
@@ -28,10 +29,16 @@ export const Planets = () => {
                 <section className="solar-system__planets">
                     <h2 className="solar-system__planets-title">Solar System Planets</h2>
                     <div className="solar-system__planets-list">
-                        {planets.map((planet) => (
-                            <Link key={ planet.id } to={`/planets/${planet.id}`}>
-                                <PlanetCard planet={ planet } />
-                            </Link>
+                        {planets.map((planet, index) => (
+                            <motion.div
+                                key={planet.id}
+                                initial={{ opacity: 0, y: 30 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: index * 0.15, duration: 0.5, ease: "easeOut" }}                            >
+                                <Link to={`/planets/${planet.id}`}>
+                                    <PlanetCard planet={ planet } />
+                                </Link>
+                            </motion.div>
                         ))}
                     </div>
                 </section>
