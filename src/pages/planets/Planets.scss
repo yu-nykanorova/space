@@ -2,22 +2,55 @@
 
 .solar-system {
     margin-top: 70rem;
-    padding: 0 40rem; 
+    padding: 0 40rem;
+    
+    @include tablet {
+        margin-top: 60rem;
+    }
+
+    @include tablet-small {
+        margin-top: 30rem;
+    }
+
+    @include mobile {
+        margin-top: 10rem;
+        padding: 0 20rem;
+    }
 
     &__about {
         margin-inline: auto; 
         margin-bottom: 70rem;
         max-width: 1440rem;
-        
         display: flex;
         justify-content: center;
         gap: 30rem;
+
+        @include tablet {
+            margin: 50rem auto;
+        }
+
+        @include tablet-small {
+            margin: 30rem auto;
+            flex-direction: column-reverse;
+            gap: 20rem;
+        }
+
+        @include mobile {
+            margin: 20rem auto;
+            gap: 10rem;
+            flex-direction: column;
+        }
 
         &-image {
             flex: 0 0 40%;
             display: flex;
             border-radius: 7rem;
             box-shadow: 5px 5px 30px 0 rgba(0, 0, 0, 0.25);
+
+            @include tablet-small {
+                flex: initial;
+                width: 100%;
+            }
             
             img {
                 border-radius: 7rem;
@@ -33,14 +66,36 @@
                 font-size: 24rem;
                 text-shadow: 1rem 1rem 5rem rgba(83, 82, 130, 0.25);
                 margin-bottom: 10rem;
+
+                @include tablet-small {
+                    font-size: 22rem;
+                }
             }
 
             p {
                 margin-top: 10rem;
                 font-size: 18rem;
                 line-height: 180%;
+
+                @include tablet-small {
+                    font-size: 16rem;
+                    line-height: 140%;
+                }
+            }
+
+            .decor-line-dark {
+                @include mobile {
+                    display: none;
+                }
             }
         }
+    }
+
+    .decor-line-dark-mobile {
+        display: none;
+        @include mobile {
+            display: flex;
+        }            
     }
 
     &__planets {
@@ -58,6 +113,21 @@
             font-size: 36rem;
             font-weight: 700;
             text-shadow: 1rem 1rem 5rem rgba(83, 82, 130, 0.25);
+
+            @include tablet {
+                font-size: 28rem;
+                margin-bottom: 30rem;
+            }
+
+            @include tablet-small {
+                font-size: 24rem;
+                margin-bottom: 10rem;
+            }
+
+            @include mobile {
+                font-size: 22rem;
+                margin-top: 20rem;
+            }
         }
     
         &-list {
@@ -66,6 +136,29 @@
             align-items: center;
             gap: 30rem;
             flex-wrap: wrap;
+
+            @include tablet {
+                gap: 20rem;
+            }
+
+            @include mobile {
+                gap: 10rem;
+            }
+
+            &-item {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                @include tablet-small {
+                    flex: 0 0 calc((100% - 20rem) / 2);
+                }
+
+                @include mobile {
+                    flex: 0 0 100%;
+                }
+                
+            }
+
         }
     }
 }

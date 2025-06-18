@@ -9,6 +9,23 @@
     justify-content: center;
     align-items: center;
 
+    @include desktop-small {
+        margin: 50rem auto 40rem;
+    }
+
+    @include tablet {
+        margin: 40rem auto;
+    }
+
+    @include tablet-small {
+        margin: 30rem auto 20rem;
+    }
+
+    @include mobile {
+        margin: 10rem auto;
+        padding: 0 20rem;
+    }
+
     &__title {
         font-family: var(--font-second);
         font-size: 36rem;
@@ -16,6 +33,27 @@
         color: var(--dark-lilac);
         text-shadow: 1rem 1rem 3rem rgba(0, 0, 0, 0.5);
         margin-bottom: 50rem;
+
+        @include desktop-small {
+            margin-bottom: 30rem;
+            font-size: 34rem;
+            font-weight: 600;
+        }
+
+        @include tablet {
+            font-size: 28rem;
+        }
+
+        @include tablet-small {
+            font-size: 24rem;
+            margin-bottom: 20rem;
+        }
+
+        @include mobile {
+            text-align: center;
+            font-size: 22rem;
+            margin-bottom: 10rem;
+        }
     }
 
     &__content {
@@ -23,11 +61,20 @@
         justify-content: center;
         gap: 30rem;
 
+        @include tablet-small {
+            flex-direction: column;
+            gap: 20rem;
+        }
+
         &-img {
             flex: 0 0 40%;
             box-shadow: 5px 5px 30px 0 rgba(0, 0, 0, 0.25);
             display: flex;
             border-radius: 7rem;
+
+            @include tablet-small {
+                flex: initial;
+            }
 
             img {
                 border-radius: 7rem;
@@ -41,24 +88,42 @@
                 font-family: var(--font-second);
                 font-size: 24rem;
                 text-shadow: 1rem 1rem 5rem rgba(83, 82, 130, 0.25);
+
+                @include tablet-small {
+                    font-size: 22rem;
+                    margin-bottom: 10rem;
+                }
             }
 
             .photo-desc {
                 margin-bottom: 20rem;
                 line-height: 140%;
                 font-size: 16rem;
+
+                @include tablet-small {
+                    margin-bottom: 10rem;
+                }
             }
 
-            .photo-data {
+            .photo-date {
                 font-family: var(--font-second);
                 font-size: 20rem;
                 font-weight: 600;
                 margin-bottom: 20rem;
+
+                @include tablet-small {
+                    font-size: 18rem;
+                    margin-bottom: 10rem;
+                }
             }
 
             .buttons {
                 display: flex;
                 gap: 10rem;
+
+                @include tablet-small {
+                    justify-content: center;
+                }
         
                 .btn {
                     color: var(--red-brown);
@@ -67,6 +132,10 @@
                     font-size: 20rem;
                     border: 2rem solid var(--red-brown);
                     border-radius: 7rem;
+
+                    @include tablet-small {
+                        font-size: 18rem;
+                    }
 
                     &:not(.disabled):hover {
                         color: var(--white);
@@ -93,6 +162,23 @@
     align-items: center;
     background-color: var(--dark-lilac);
 
+    @include desktop-small {
+        padding: 60rem 40rem;
+    }
+
+    @include tablet {
+        padding: 40rem;
+    }
+
+    @include tablet-small {
+        margin: 20rem auto;
+        padding-inline: 60rem;
+    }
+    
+    @include mobile {
+        padding: 20rem;
+    }
+
     &__content {
         max-width: 1440rem;
         display: flex;
@@ -101,17 +187,46 @@
         justify-content: center;
 
         &-title {
-            margin-bottom: 30rem;
+            margin-bottom: 50rem;
             color: var(--white);
             font-family: var(--font-second);
             font-size: 36rem;
+
+            @include desktop-small {
+                margin-bottom: 30rem;
+                font-size: 34rem;
+                font-weight: 600;
+            }
+
+            @include tablet {
+                font-size: 28rem;
+            }
+
+            @include tablet-small {
+                font-size: 24rem;
+                margin-bottom: 20rem;
+            }
+
+            @include mobile {
+                font-size: 22rem;
+                margin-bottom: 20rem;
+            }
         }
         
         &-list {
             display: flex;
             justify-content: space-between;
             gap: 30rem;
-            margin-bottom: 30rem;
+            margin-bottom: 50rem;
+
+            @include tablet {
+                margin-bottom: 30rem;
+            }
+
+            @include tablet-small {
+                flex-direction: column;
+                gap: 20rem;
+            }
 
             .news-item-card {
                 flex: 0 0 calc((100% - 30rem * 2) / 3);
@@ -119,6 +234,10 @@
                 border-radius: 7rem;
                 display: grid;
                 grid-template-rows: auto 1fr auto;
+
+                @include tablet-small {
+                    flex: 0 0 100%;
+                }
                 
                 &__img {
                     width: 100%;
@@ -142,11 +261,19 @@
                         font-size: 18rem;
                         font-weight: 700;
                         margin: 10rem;
+
+                        @include mobile {
+                            font-weight: 600;
+                        }
                     }
     
                     &-summary {
                         margin: 0 10rem 10rem 10rem;
                         font-size: 16rem;
+
+                        @include mobile {
+                            font-size: 14rem;
+                        }
                     }
                 }
 
@@ -161,6 +288,15 @@
                     font-size: 18rem;
                     font-weight: 600;
                     color: var(--red-brown);
+
+                    @include tablet-small {
+                        max-width: 30%;
+                        font-size: 16rem;
+                    }
+
+                    @include mobile {
+                        max-width: 40%;
+                    }
 
                     &:hover {
                         background-color: var(--red-brown);

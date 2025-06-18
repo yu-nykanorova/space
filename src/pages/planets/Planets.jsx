@@ -25,12 +25,14 @@ export const Planets = () => {
                         <DecorLine className="decor-line-dark" />
                         <p>The Solar System is a planetary system with the Sun at its center. Eight planets, along with dwarf planets, moons, asteroids, comets, and other celestial bodies, orbit around it. The Solar System formed about 4.6 billion years ago from a cloud of gas and dust. It is our cosmic home and serves as a subject of study and inspiration for science and exploration.</p>
                     </div>
-                </section>            
+                </section>
+                <DecorLine className="decor-line-dark-mobile" />            
                 <section className="solar-system__planets">
                     <h2 className="solar-system__planets-title">Solar System Planets</h2>
                     <div className="solar-system__planets-list">
                         {planets.map((planet, index) => (
                             <motion.div
+                                className="solar-system__planets-list-item"
                                 key={planet.id}
                                 initial={{ opacity: 0, y: 30 }}
                                 animate={{ opacity: 1, y: 0 }}

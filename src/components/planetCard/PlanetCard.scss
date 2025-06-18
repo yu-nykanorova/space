@@ -30,6 +30,11 @@
         color: var(--dark-lilac);
         text-shadow: 1rem 1rem 5rem rgba(83, 82, 130, 0.25);
         padding: 5rem;
+
+        @include tablet-small {
+            font-size: 22rem;
+            font-weight: 600;
+        }
     }
 
     .planet-data {
@@ -37,6 +42,10 @@
         font-size: 20rem;
         margin-bottom: 3rem;
         color: var(--red-brown);
+
+        @include tablet-small {
+            font-size: 16rem;
+        }
 
         span {
             color: var(--black);

@@ -15,6 +15,22 @@
     color: var(--white);
     padding: 180rem 50rem;
 
+    @include desktop-small {
+        padding: 120rem 50rem 90rem 50rem;
+    }
+
+    @include tablet {
+        padding: 100rem 50rem 70rem 50rem;
+    }
+
+    @include tablet-small {
+        padding: 80rem 40rem 60rem 40rem;
+    }
+
+    @include mobile {
+        padding: 80rem 20rem 40rem 20rem;
+    }
+
     &__info {
         text-align: center;
         font-family: var(--font-second);
@@ -24,17 +40,48 @@
             font-weight: 700;
             margin-bottom: 10rem;
             text-shadow: 1rem 1rem 2rem var(--lilac);
+
+            @include tablet {
+                font-size: 36rem;
+            }
+
+            @include tablet-small {
+                font-size: 32rem;
+                font-weight: normal;
+            }
+
+            @include mobile {
+                font-size: 28rem;
+            }
         }
 
         &-desc {
             margin-top: 30rem;
             font-size: 28rem;
-            font-weight: 300;
             line-height: 180%;
+
+            @include tablet {
+                font-size: 22rem;
+                line-height: 140%;
+            }
+
+            @include tablet-small {
+                font-size: 16rem;
+                font-weight: lighter;
+                margin-top: 10rem;
+            }
 
             span {
                 font-family: var(--font-main);
                 font-size: 24rem;
+
+                @include tablet {
+                    font-size: 20rem;
+                }
+
+                @include tablet-small {
+                    font-size: 16rem;
+                }
             }
         }
     }
@@ -44,12 +91,36 @@
     background-image: url("../../assets/img/banner-solar-system1.jpg");
     color: var(--lilac);
     text-shadow: 1rem 1rem 1rem var(--white);
-     
     padding: 80rem;
+
+    @include tablet {
+        padding: 80rem 50rem 60rem 50rem;
+    }
+
+    @include tablet-small {
+        padding: 80rem 40rem 50rem 40rem;
+    }
+
+    @include mobile {
+        padding-inline: 20rem;
+    }
 
     &__title {
         text-align: center;
         font-family: var(--font-second);
         font-size: 40rem;
+
+        @include tablet {
+            font-size: 36rem;
+        }
+
+        @include tablet-small {
+            font-size: 32rem;
+            font-weight: normal;
+        }
+
+        @include mobile {
+            font-size: 28rem;
+        }
     }
 }

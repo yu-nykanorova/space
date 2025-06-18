@@ -75,7 +75,7 @@ export const Home = () => {
                 <div className="daily-photo__content-info">
                   <h3 className="photo-title">{ dataNasa.title }</h3>
                   <p className="photo-desc">{ dataNasa.explanation }</p>
-                  <p className="photo-data">{ currentDate }</p>
+                  <p className="photo-date">{ currentDate }</p>
                   <div className="buttons">
                     <div className="btn-prev btn" onClick={() => changeDate(-1)}>Previous</div>
                     <div

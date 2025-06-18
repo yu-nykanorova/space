@@ -6,19 +6,31 @@
     justify-content: center;
     gap: 20rem;
 
+    @include tablet-small {
+        gap: 10rem;
+    }
+
     .line {
         width: 100rem;
         height: 1rem;
         background-color: var(--white);
+        
+        @include tablet-small {
+            width: 80rem;
+        }
     }
 
     .star {
         color: var(--white);
         font-size: 26rem;
         line-height: 100%;
+
+        @include tablet-small {
+            font-size: 22rem;
+        }
     }
 
-    &.decor-line-dark {
+    &.decor-line-dark, &.decor-line-dark-mobile {
         .line {
             background-color: var(--red-brown);
         }

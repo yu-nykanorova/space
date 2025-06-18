@@ -20,6 +20,10 @@ body {
     position: relative;
     min-height: 100%;
     padding-bottom: 100rem;
+
+    @include tablet-small {
+        padding-bottom: 70rem;
+    }
 }
 
 a {

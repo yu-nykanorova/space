@@ -13,15 +13,56 @@
     gap: 40rem;
     padding: 20rem 100rem;
 
+    @include tablet {
+        padding: 20rem 70rem;
+        height: 80rem;
+    }
+
+    @include tablet-small {
+        padding: 20rem 50rem;
+        height: 70rem;
+        gap: 30rem;
+    }
+
+    @include mobile {
+        flex-direction: column;
+        padding: 10rem 20rem;
+        height: auto;
+        gap: 2rem;
+    }
+
     .logo {
         max-width: 100rem;
+
+        @include tablet {
+            max-width: 80rem;
+        }
+
+        @include tablet-small {
+            max-width: 70rem;
+        }
+
+        @include mobile {
+            max-width: 60rem;
+            align-self: stretch;
+        }
     }
 
     .menu {
-
         display: flex;
         gap: 25rem;
         padding-top: 10rem;
+
+        @include tablet-small {
+            gap: 15rem;
+        }
+
+        @include mobile {
+            padding-top: 0;
+            gap: 10rem;
+            align-self: stretch;
+            justify-content: space-evenly;
+        }
 
         .nav-link {
             font-family: var(--font-main);
@@ -29,6 +70,14 @@
             font-size: 16rem;
             letter-spacing: 2rem;
             position: relative;
+
+            @include tablet-small {
+                font-size: 14rem;
+            }
+
+            @include mobile {
+                text-shadow: 1rem 1rem 3rem rgba(0, 0, 0, 0.5);
+            }
 
             &::after {
                 content: "";
