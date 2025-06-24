@@ -1,6 +1,6 @@
 import getDataService from "./getDataService";
 
-const NASA_API_KEY = "AWeemK2VfduvtM0iq42LQPiO3Dp0Ig4qwS9a7maY";
+const NASA_API_KEY = import.meta.env.VITE_NASA_API_KEY;
 const NASA_URL = `https://api.nasa.gov/planetary/apod`;
 
 export const fetchNasaPhoto = async (date) => {
