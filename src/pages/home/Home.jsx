@@ -66,7 +66,14 @@ export const Home = () => {
           <h2 className="daily-photo__title">NASA picture of the day</h2>
           <div className="daily-photo__content">
             {loadingNasa && <Spinner />}
-            {errorNasa && <p className="error">Error: { errorNasa }</p>}
+            {errorNasa &&
+              <div className="error-box">
+                <p className="error">Error: { errorNasa }</p>
+                <p className="error">NASA API Service Outages Possible</p>
+                <p className="error">Please, try again later</p>
+                <img src="https://api.nasa.gov/assets/img/general/apod.jpg" alt="example image"/>
+              </div>
+            }
             {!loadingNasa && !errorNasa && dataNasa && (
               <>
                 <div className="daily-photo__content-img">
