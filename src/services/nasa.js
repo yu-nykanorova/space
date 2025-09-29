@@ -10,7 +10,7 @@ export const fetchNasaPhoto = async (date) => {
         ? `${NASA_URL}?api_key=${NASA_API_KEY}&date=${date}`
         : `${NASA_URL}?api_key=${NASA_API_KEY}`;
 
-    const data = await getData(url, "NASA Photo of the Day");
+    const data = await getData(url, {}, "NASA Photo of the Day");
     
     return {
         img: data.url,

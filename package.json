@@ -9,9 +9,13 @@
     "lint": "eslint .",
     "preview": "vite preview"
   },
+  "proxy": "http://localhost:5000",
   "dependencies": {
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
     "framer-motion": "^12.18.1",
     "motion": "^12.18.1",
+    "node-fetch": "^3.3.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.6.1",
@@ -26,6 +30,12 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^16.0.0",
+    "nodemon": "^3.1.10",
     "vite": "^6.3.5"
-  }
+  },
+  "description": "This is a learning project built for practice and portfolio purposes. A single-page React application that provides space-related content using data from multiple APIs. The project combines clean design, dynamic routing, and reusable logic with custom hooks and services.",
+  "main": "eslint.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

@@ -1,11 +1,17 @@
 import getDataService from "./getDataService";
 
-const SOLARSYSTEM_BASE_URL = "https://api.le-systeme-solaire.net/rest/bodies/";
-
 export const fetchSolarSystem = async (planetName) => {
     const { getData } = getDataService();
 
-    const data = await getData(`${SOLARSYSTEM_BASE_URL}${planetName}`, "Solar System OpenData");
+    
+    const options = {
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }
+
+    const data = await getData(`/api/planets/${planetName}`, options, "Solar System OpenData");
+    console.log(data);
   
     return {
         mass: data.mass.massValue,
